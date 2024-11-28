@@ -1,0 +1,5 @@
+package com.neso.neso
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity()
