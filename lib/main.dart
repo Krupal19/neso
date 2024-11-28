@@ -2,20 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:neso/bindings/app_binding.dart';
 
 import 'constant/strings.dart';
-import 'modules/no_internet/no_internet_screen.dart';
 import 'modules/splash/splash_screen.dart';
-import 'bindings/network_binding.dart';
-import 'services/network_controller.dart';
 import 'utility/utility.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  final networkService = NetworkController.instance;
-
-  await networkService.init();
 
   runApplication();
 }
@@ -41,8 +35,8 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           title: Strings.appName,
           debugShowCheckedModeBanner: false,
-          initialBinding: NetworkBinding(),
-          home: SplashScreen(),
+          initialBinding: AppBinding(),
+          home: const SplashScreen(),
         );
       },
     );
